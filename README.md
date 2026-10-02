@@ -1,28 +1,44 @@
-# Number Guessing Game (Java)
+# Number Guessing (Java)
 
-Guess a random number from 1 to 100. The program tells you if you are too high or too low.
+This is the same game as my Python version, written in Java: the computer picks a number from 1 to 100 and you guess until you find it. I wrote it to get comfortable with `Scanner`, `Random`, and parsing input safely in Java, and later split the logic out so it could be tested without a framework.
 
-## Run
+There's also a **browser version** called *Hot or Cold*, so anyone can play without a JDK.
 
-From the `src` folder:
+**Play in your browser:** https://dave-4u.github.io/java-number-guessing/
+
+![Hot or Cold, browser version](docs/img/screenshot.png)
+
+## Quickstart
+
+Needs JDK 11 or newer.
 
 ```bash
-javac NumberGuessing.java
-java NumberGuessing
+./run.sh          # compile + play
+./run.sh test     # compile + run the tests
 ```
 
-Or from the repo root:
+Without the script:
 
 ```bash
-javac src/NumberGuessing.java
-java -cp src NumberGuessing
+javac -d out src/NumberGuessing.java test/NumberGuessingTest.java
+java -cp out NumberGuessing
 ```
 
-Type `quit` to stop early.
+## Features
 
-## What it shows
+- Input validation (numbers 1–100 only), `q` to quit, play again, and best score for the session
+- `check()` and `parse()` are pure static methods, covered by a dependency-free test class
+- Browser port with a heat meter, a shrinking number line, guess history, and confetti
 
-- `Scanner` for input
-- `Random` for the secret number
-- A `while` loop
-- Parsing integers safely
+## Tech stack
+
+Java 11+ standard library. The web version is a single HTML file with vanilla JS.
+
+## Roadmap
+
+- Gradle build with JUnit 5
+- Difficulty levels and a leaderboard file
+
+## License
+
+MIT © Adegboro David Oluwadamilare
